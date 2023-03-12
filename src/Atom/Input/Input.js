@@ -1,8 +1,8 @@
 import React from 'react'
-export default function Input({onChange , placeholder , value , type , name , id}){
+export default function Input({onChange , placeholder , value , type , name , id ,className}){
   return (
     <>
-    <input name={name} id={id} type={type} onChange={onChange} placeholder={placeholder} value={value}/>
+    <input className={className} name={name} id={id} type={type} onChange={onChange} placeholder={placeholder} value={value}/>
     </>
   )
 }
