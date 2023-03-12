@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Input from '../../Atom/Input/Input';
 import Button from '../../Atom/Button/Button';
 import TextArea from '../../Atom/TextArea/TextArea';
 import { lists } from '../../Recoil/Data';
 import { useRecoilState } from 'recoil';
-import style from './HomePage.module.css'
+import style from './HomePage.module.css';
 export default function App() {
   const [search, setSearch] = useState('');
   const [text, setText] = useState('');
   const [list, setList] = useState([]);
   const [allList, setAllList] = useRecoilState(lists);
   const [favItem, setFavItem] = useState({});
+  const navigate = useNavigate()
   // const [favItemList, setFavItemList] = useState([]);
 
   useEffect(() => {
@@ -46,7 +47,7 @@ export default function App() {
         version: favItem.package?.version,
         description: favItem.package.description,
         yourText: text,
-        isEdit : false
+        isEdit: false,
       };
       console.log(selectFavItem, 'uuuy');
       //get all the data from local storage
@@ -68,9 +69,9 @@ export default function App() {
   }
   return (
     <div>
-      <Link to="/fav_list">Favourite packages </Link>
+     <Button className={style.navBtn} onClick={()=>navigate("/fav_list")} text = "Youe Favourite Packages" />
       <br />
-      <span>Search Npm Package</span>
+      <span className={style.head}>Search Npm Package</span>
       <br />
       <Input
         onChange={(e) => setSearch(e.target.value)}

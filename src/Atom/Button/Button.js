@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function Button({onClick , text , disabled}){
+export default function Button({onClick , text , disabled , className}){
   return(
     <>
-<button disabled={disabled} onClick={onClick}>{text}</button>
+<button className={className} disabled={disabled} onClick={onClick}>{text}</button>
     </>
   )
 }
